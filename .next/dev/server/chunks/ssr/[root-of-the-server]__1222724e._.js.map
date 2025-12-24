@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 18, "column": 0}, "map": {"version":3,"sources":["file:///C:/xampp1/htdocs/Chatbot%20Full%20Stack/chatbot-frontend/app/page.tsx"],"sourcesContent":["import Image from \"next/image\";\nimport Chat from \"@/app/chat/page\";\nexport default function Home() {\n  return (\n    <div className=\"flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black\">\n      <h1>Hola</h1>\n    </div>\n  );\n}\n"],"names":[],"mappings":";;;;;;AAEe,SAAS;IACtB,qBACE,8OAAC;QAAI,WAAU;kBACb,cAAA,8OAAC;sBAAG;;;;;;;;;;;AAGV"}}]
+}
