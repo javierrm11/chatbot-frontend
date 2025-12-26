@@ -6,6 +6,7 @@ __turbopack_context__.s([
     "default",
     ()=>Home
 ]);
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = /*#__PURE__*/ __turbopack_context__.i("[project]/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$jsx$2f$style$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/styled-jsx/style.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
@@ -63,7 +64,7 @@ function Home() {
     }["Home.useEffect"], []);
     // 📂 CONVERSATIONS
     const fetchConversations = async (token)=>{
-        const res = await fetch("http://localhost:3000/api/conversation", {
+        const res = await fetch(`${("TURBOPACK compile-time value", "https://chatbot-backend-2osa.onrender.com")}/api/conversation`, {
             headers: {
                 Authorization: `Bearer ${token}`
             }
@@ -78,7 +79,7 @@ function Home() {
     // 📜 HISTORY
     const fetchHistory = async (conversationId, token)=>{
         try {
-            const res = await fetch(`http://localhost:3000/chat/history/${conversationId}`, {
+            const res = await fetch(`${("TURBOPACK compile-time value", "https://chatbot-backend-2osa.onrender.com")}/chat/history/${conversationId}`, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
@@ -93,7 +94,7 @@ function Home() {
     const createConversation = async ()=>{
         const token = localStorage.getItem("token");
         if (!token) return;
-        const res = await fetch("http://localhost:3000/api/conversation", {
+        const res = await fetch(`${("TURBOPACK compile-time value", "https://chatbot-backend-2osa.onrender.com")}/api/conversation`, {
             method: "POST",
             headers: {
                 Authorization: `Bearer ${token}`,
@@ -120,7 +121,7 @@ function Home() {
         // 🔹 Si no hay conversación activa, crear una nueva
         let conversationId = activeConversation;
         if (!conversationId) {
-            const res = await fetch("http://localhost:3000/api/conversation", {
+            const res = await fetch(`${("TURBOPACK compile-time value", "https://chatbot-backend-2osa.onrender.com")}/api/conversation`, {
                 method: "POST",
                 headers: {
                     Authorization: `Bearer ${token}`,
@@ -147,7 +148,7 @@ function Home() {
         setInput("");
         setLoading(true);
         try {
-            const res = await fetch("http://localhost:3000/chat", {
+            const res = await fetch(`${("TURBOPACK compile-time value", "https://chatbot-backend-2osa.onrender.com")}/chat`, {
                 method: "POST",
                 headers: {
                     Authorization: `Bearer ${token}`,
@@ -176,7 +177,7 @@ function Home() {
     const renameConversation = async (id)=>{
         const token = localStorage.getItem("token");
         if (!token || !editingTitle.trim()) return;
-        const res = await fetch(`http://localhost:3000/api/conversation/${id}`, {
+        const res = await fetch(`${("TURBOPACK compile-time value", "https://chatbot-backend-2osa.onrender.com")}/api/conversation/${id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
@@ -195,7 +196,7 @@ function Home() {
         const token = localStorage.getItem("token");
         if (!token) return;
         if (!confirm("¿Eliminar esta conversación?")) return;
-        await fetch(`http://localhost:3000/api/conversation/${id}`, {
+        await fetch(`${("TURBOPACK compile-time value", "https://chatbot-backend-2osa.onrender.com")}/api/conversation/${id}`, {
             method: "DELETE",
             headers: {
                 Authorization: `Bearer ${token}`

@@ -62,7 +62,7 @@ export default function Home() {
 
   // 📂 CONVERSATIONS
   const fetchConversations = async (token: string) => {
-    const res = await fetch("http://localhost:3000/api/conversation", {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URI}/api/conversation`, {
       headers: { Authorization: `Bearer ${token}` },
     });
 
@@ -79,7 +79,7 @@ export default function Home() {
   const fetchHistory = async (conversationId: string, token: string) => {
     try {
       const res = await fetch(
-        `http://localhost:3000/chat/history/${conversationId}`,
+        `${process.env.NEXT_PUBLIC_BACKEND_URI}/chat/history/${conversationId}`,
         {
           headers: { Authorization: `Bearer ${token}` },
         }
@@ -97,7 +97,7 @@ export default function Home() {
     const token = localStorage.getItem("token");
     if (!token) return;
 
-    const res = await fetch("http://localhost:3000/api/conversation", {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URI}/api/conversation`, {
       method: "POST",
       headers: {
         Authorization: `Bearer ${token}`,
@@ -126,7 +126,7 @@ export default function Home() {
     // 🔹 Si no hay conversación activa, crear una nueva
     let conversationId = activeConversation;
     if (!conversationId) {
-      const res = await fetch("http://localhost:3000/api/conversation", {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URI}/api/conversation`, {
         method: "POST",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -147,7 +147,7 @@ export default function Home() {
     setLoading(true);
   
     try {
-      const res = await fetch("http://localhost:3000/chat", {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URI}/chat`, {
         method: "POST",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -174,7 +174,7 @@ export default function Home() {
     const token = localStorage.getItem("token");
     if (!token || !editingTitle.trim()) return;
   
-    const res = await fetch(`http://localhost:3000/api/conversation/${id}`, {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URI}/api/conversation/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -199,7 +199,7 @@ export default function Home() {
   
     if (!confirm("¿Eliminar esta conversación?")) return;
   
-    await fetch(`http://localhost:3000/api/conversation/${id}`, {
+    await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URI}/api/conversation/${id}`, {
       method: "DELETE",
       headers: {
         Authorization: `Bearer ${token}`,

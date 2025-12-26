@@ -77,7 +77,7 @@ function Home() {
     }, []);
     // 📂 CONVERSATIONS
     const fetchConversations = async (token)=>{
-        const res = await fetch("http://localhost:3000/api/conversation", {
+        const res = await fetch(`${("TURBOPACK compile-time value", "https://chatbot-backend-2osa.onrender.com")}/api/conversation`, {
             headers: {
                 Authorization: `Bearer ${token}`
             }
@@ -92,7 +92,7 @@ function Home() {
     // 📜 HISTORY
     const fetchHistory = async (conversationId, token)=>{
         try {
-            const res = await fetch(`http://localhost:3000/chat/history/${conversationId}`, {
+            const res = await fetch(`${("TURBOPACK compile-time value", "https://chatbot-backend-2osa.onrender.com")}/chat/history/${conversationId}`, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
@@ -107,7 +107,7 @@ function Home() {
     const createConversation = async ()=>{
         const token = localStorage.getItem("token");
         if (!token) return;
-        const res = await fetch("http://localhost:3000/api/conversation", {
+        const res = await fetch(`${("TURBOPACK compile-time value", "https://chatbot-backend-2osa.onrender.com")}/api/conversation`, {
             method: "POST",
             headers: {
                 Authorization: `Bearer ${token}`,
@@ -134,7 +134,7 @@ function Home() {
         // 🔹 Si no hay conversación activa, crear una nueva
         let conversationId = activeConversation;
         if (!conversationId) {
-            const res = await fetch("http://localhost:3000/api/conversation", {
+            const res = await fetch(`${("TURBOPACK compile-time value", "https://chatbot-backend-2osa.onrender.com")}/api/conversation`, {
                 method: "POST",
                 headers: {
                     Authorization: `Bearer ${token}`,
@@ -161,7 +161,7 @@ function Home() {
         setInput("");
         setLoading(true);
         try {
-            const res = await fetch("http://localhost:3000/chat", {
+            const res = await fetch(`${("TURBOPACK compile-time value", "https://chatbot-backend-2osa.onrender.com")}/chat`, {
                 method: "POST",
                 headers: {
                     Authorization: `Bearer ${token}`,
@@ -190,7 +190,7 @@ function Home() {
     const renameConversation = async (id)=>{
         const token = localStorage.getItem("token");
         if (!token || !editingTitle.trim()) return;
-        const res = await fetch(`http://localhost:3000/api/conversation/${id}`, {
+        const res = await fetch(`${("TURBOPACK compile-time value", "https://chatbot-backend-2osa.onrender.com")}/api/conversation/${id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
@@ -209,7 +209,7 @@ function Home() {
         const token = localStorage.getItem("token");
         if (!token) return;
         if (!confirm("¿Eliminar esta conversación?")) return;
-        await fetch(`http://localhost:3000/api/conversation/${id}`, {
+        await fetch(`${("TURBOPACK compile-time value", "https://chatbot-backend-2osa.onrender.com")}/api/conversation/${id}`, {
             method: "DELETE",
             headers: {
                 Authorization: `Bearer ${token}`
